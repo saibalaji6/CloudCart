@@ -453,17 +453,20 @@ Deployment target
 
 Live Demo
 
-## AWS Deployment
+## ☁️ AWS Deployment
 
-CloudCart was deployed and tested on AWS EC2 using Docker Compose.
+CloudCart was successfully deployed on AWS EC2 using Docker Compose.
 
-AWS services used:
-- EC2
+Deployment included:
+- Amazon EC2
 - Docker
 - Docker Compose
-- PostgreSQL container
+- Spring Boot
+- React
+- PostgreSQL
+- Stripe Checkout
 
----
+The application was validated end-to-end on AWS before being migrated to a lower-cost hosting environment for the public demo.
 
 # 📈 Future Enhancements
 
