@@ -439,25 +439,12 @@ docker compose down
 
 ---
 
-# ☁ AWS Deployment
-
-CloudCart is designed for deployment on AWS.
-
-Deployment target
-
-- AWS EC2
-- Docker
-- PostgreSQL
-- Nginx (Future)
-- HTTPS (Future)
-
-Live Demo
-
 ## ☁️ AWS Deployment
 
-CloudCart was successfully deployed on AWS EC2 using Docker Compose.
+CloudCart was successfully deployed and tested on AWS EC2 using Docker and Docker Compose.
 
 Deployment included:
+
 - Amazon EC2
 - Docker
 - Docker Compose
@@ -466,7 +453,17 @@ Deployment included:
 - PostgreSQL
 - Stripe Checkout
 
-The application was validated end-to-end on AWS before being migrated to a lower-cost hosting environment for the public demo.
+### EC2 Instance
+
+![AWS EC2 Dashboard](deployment-images/aws-ec2-dashboard.png)
+
+### Docker Containers Running on EC2
+
+![Docker Containers](deployment-images/aws-docker-ps.png)
+
+### Stripe Checkout on AWS
+
+![Stripe Checkout AWS](deployment-images/aws-stripe-payment.png)
 
 # 📈 Future Enhancements
 
