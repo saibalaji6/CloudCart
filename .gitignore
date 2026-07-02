@@ -3,7 +3,7 @@ target/
 .env
 *.log
 
-cloudcart-backend/src/main/resources/application.yaml
+
 
 .DS_Store
 .vscode/
