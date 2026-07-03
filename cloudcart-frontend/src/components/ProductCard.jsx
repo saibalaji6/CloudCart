@@ -7,7 +7,7 @@ function ProductCard({ product }) {
   const { addToCart } = useContext(CartContext);
   const { addToWishlist } = useContext(WishlistContext);
 
-  const imagePath = `/src/assets/images/${product.imageUrl}`;
+  const imagePath = product.imageUrl;
 
   return (
     <div className="product-card">
@@ -23,12 +23,9 @@ function ProductCard({ product }) {
 
       <h4>${product.price}</h4>
 
-      
-
-
       <button onClick={() => addToCart(product)}>Add to Cart</button>
 
-<button onClick={() => addToWishlist(product)}>❤️ Wishlist</button>
+      <button onClick={() => addToWishlist(product)}>❤️ Wishlist</button>
     </div>
   );
 }
