@@ -67,11 +67,22 @@ function Checkout() {
         return;
       }
 
-      const response = await api.post("/payments/create-checkout-session", {
-        totalPrice: totalPrice,
-      });
+      await api.post("/orders", {
+  userEmail: user.email,
+  fullName: customer.fullName,
+  phoneNumber: customer.phoneNumber,
+  address: customer.address,
+  paymentMethod: customer.paymentMethod,
+  totalPrice: totalPrice,
+});
 
-      window.location.href = response.data.url;
+placeOrder(customer);
+
+const response = await api.post("/payments/create-checkout-session", {
+  totalPrice: totalPrice,
+});
+
+window.location.href = response.data.url;
     } catch (error) {
       console.error(error);
       toast.error("Order failed. Please try again.");
