@@ -1,10 +1,11 @@
 package cloudcart_backend.service;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
 import com.stripe.Stripe;
 import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 
 @Service
 public class StripeService {
@@ -20,8 +21,8 @@ public class StripeService {
         SessionCreateParams params =
                 SessionCreateParams.builder()
                         .setMode(SessionCreateParams.Mode.PAYMENT)
-                        .setSuccessUrl("http://localhost:3000/payment-success")
-                        .setCancelUrl("http://localhost:3000/payment-cancel")
+                        .setSuccessUrl("https://cloud-cart-olive.vercel.app/payment-success")
+                        .setCancelUrl("https://cloud-cart-olive.vercel.app/payment-cancel")
                         .addLineItem(
                                 SessionCreateParams.LineItem.builder()
                                         .setQuantity(1L)
