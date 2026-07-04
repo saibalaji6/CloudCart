@@ -2,7 +2,10 @@ package cloudcart_backend.controller;
 
 import java.util.Map;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import cloudcart_backend.dto.AuthResponse;
 import cloudcart_backend.dto.LoginRequest;
@@ -11,7 +14,6 @@ import cloudcart_backend.service.AuthService;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:5173")
 public class AuthController {
 
     private final AuthService authService;
