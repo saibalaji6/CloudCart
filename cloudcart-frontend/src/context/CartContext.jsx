@@ -25,53 +25,62 @@ function CartProvider({ children }) {
   };
 
   const addToCart = (product) => {
-  const existingProduct = cartItems.find(
-    (item) => item.id === product.id
-  );
+    const existingProduct = cartItems.find(
+      (item) => item.id === product.id
+    );
 
-  if (existingProduct) {
+    if (existingProduct) {
+      const updatedCart = cartItems.map((item) =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+
+      saveCart(updatedCart);
+    } else {
+      const updatedCart = [
+        ...cartItems,
+        { ...product, quantity: 1 },
+      ];
+
+      saveCart(updatedCart);
+    }
+  };
+
+  const removeFromCart = (indexToRemove) => {
+    const updatedCart = cartItems.filter(
+      (item, index) => index !== indexToRemove
+    );
+
+    saveCart(updatedCart);
+  };
+
+  const increaseQuantity = (productId) => {
     const updatedCart = cartItems.map((item) =>
-      item.id === product.id
+      item.id === productId
         ? { ...item, quantity: item.quantity + 1 }
         : item
     );
 
     saveCart(updatedCart);
-  } else {
-    const updatedCart = [
-      ...cartItems,
-      { ...product, quantity: 1 },
-    ];
+  };
 
-    saveCart(updatedCart);
-  }
-};
+  const decreaseQuantity = (productId) => {
+    const updatedCart = cartItems
+      .map((item) =>
+        item.id === productId
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+      .filter((item) => item.quantity > 0);
 
-  const removeFromCart = (indexToRemove) => {
-    const updatedCart = cartItems.filter((item, index) => index !== indexToRemove);
     saveCart(updatedCart);
   };
-  const increaseQuantity = (productId) => {
-  const updatedCart = cartItems.map((item) =>
-    item.id === productId
-      ? { ...item, quantity: item.quantity + 1 }
-      : item
-  );
 
-  saveCart(updatedCart);
-};
-
-const decreaseQuantity = (productId) => {
-  const updatedCart = cartItems
-    .map((item) =>
-      item.id === productId
-        ? { ...item, quantity: item.quantity - 1 }
-        : item
-    )
-    .filter((item) => item.quantity > 0);
-
-  saveCart(updatedCart);
-};
+  const clearCart = () => {
+    localStorage.removeItem("cartItems");
+    setCartItems([]);
+  };
 
   const placeOrder = (orderDetails) => {
     const newOrder = {
@@ -84,20 +93,21 @@ const decreaseQuantity = (productId) => {
     const updatedOrders = [...orders, newOrder];
 
     saveOrders(updatedOrders);
-    saveCart([]);
+    clearCart();
   };
 
   return (
     <CartContext.Provider
       value={{
-  cartItems,
-  orders,
-  addToCart,
-  removeFromCart,
-  increaseQuantity,
-  decreaseQuantity,
-  placeOrder,
-}}
+        cartItems,
+        orders,
+        addToCart,
+        removeFromCart,
+        increaseQuantity,
+        decreaseQuantity,
+        clearCart,
+        placeOrder,
+      }}
     >
       {children}
     </CartContext.Provider>

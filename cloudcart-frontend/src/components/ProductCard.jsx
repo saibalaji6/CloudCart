@@ -7,7 +7,7 @@ function ProductCard({ product }) {
   const { addToCart } = useContext(CartContext);
   const { addToWishlist } = useContext(WishlistContext);
 
-  const imagePath = product.imageUrl;
+  const imagePath = `/images/${product.imageUrl}`;
 
   return (
     <div className="product-card">
