@@ -33,10 +33,10 @@ function Login() {
     setLoading(true);
 
     try {
-      const response = await api.post("/auth/login", {
-        email: formData.email,
-        password: formData.password,
-      });
+      const response = await api.post("/api/auth/login", {
+  email: formData.email,
+  password: formData.password,
+});
 
       login(response.data);
 
