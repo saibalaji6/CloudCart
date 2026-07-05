@@ -19,9 +19,13 @@ function ProductDetails() {
 
  useEffect(() => {
   api
-    .get(`/api/products/${id}`)
+    .get("/api/products")
     .then((response) => {
-      setProduct(response.data);
+      const foundProduct = response.data.find(
+        (item) => Number(item.id) === Number(id)
+      );
+
+      setProduct(foundProduct);
     })
     .catch((error) => {
       console.error("Error fetching product:", error);
