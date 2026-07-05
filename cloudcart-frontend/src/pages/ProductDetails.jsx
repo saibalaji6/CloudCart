@@ -17,17 +17,18 @@ function ProductDetails() {
     comment: "",
   });
 
-  useEffect(() => {
-    api.get("/products").then((response) => {
-      const foundProduct = response.data.find(
-        (item) => item.id === Number(id)
-      );
-      setProduct(foundProduct);
+ useEffect(() => {
+  api
+    .get(`/api/products/${id}`)
+    .then((response) => {
+      setProduct(response.data);
+    })
+    .catch((error) => {
+      console.error("Error fetching product:", error);
     });
 
-    fetchReviews();
-  }, [id]);
-
+  fetchReviews();
+}, [id]);
   const fetchReviews = () => {
     api
       .get(`/reviews/product/${id}`)
