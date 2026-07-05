@@ -11,11 +11,14 @@ function Products() {
   const [minRating, setMinRating] = useState("");
 
   useEffect(() => {
-    api
-      .get("/products")
-      .then((response) => setProducts(response.data))
-      .catch((error) => console.error("Error fetching products:", error));
-  }, []);
+  api
+    .get("/api/products")
+    .then((response) => {
+      console.log("Products:", response.data);
+      setProducts(response.data);
+    })
+    .catch((error) => console.error("Error fetching products:", error));
+}, []);
 
   const filteredProducts = products
     .filter((product) => {
