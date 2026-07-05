@@ -67,16 +67,7 @@ function Checkout() {
         return;
       }
 
-      await api.post("/api/orders", {
-  userEmail: user.email,
-  fullName: customer.fullName,
-  phoneNumber: customer.phoneNumber,
-  address: customer.address,
-  paymentMethod: customer.paymentMethod,
-  totalPrice: totalPrice,
-});
-
-placeOrder(customer);
+      
 
 const response = await api.post("/api/payments/create-checkout-session", {
   totalPrice: totalPrice,

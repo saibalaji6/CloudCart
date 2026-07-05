@@ -1,13 +1,17 @@
 package cloudcart_backend.controller;
 
-import cloudcart_backend.service.StripeService;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.Map;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import cloudcart_backend.service.StripeService;
 
 @RestController
 @RequestMapping("/api/payments")
-@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:3000"})
+
 public class PaymentController {
 
     private final StripeService stripeService;
