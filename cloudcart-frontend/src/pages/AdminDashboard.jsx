@@ -81,10 +81,10 @@ function AdminDashboard() {
 
     try {
       if (editingProduct) {
-        await api.put(`/products/${editingProduct.id}`, productData);
+        await api.put(`/api/products/${editingProduct.id}`, productData);
         alert("Product updated successfully");
       } else {
-        await api.post("/products", productData);
+        await api.post("/api/products", productData);
         alert("Product added successfully");
       }
 
@@ -104,7 +104,7 @@ function AdminDashboard() {
     if (!confirmDelete) return;
 
     try {
-      await api.delete(`/products/${id}`);
+      await api.delete(`/api/products/${id}`);
       alert("Product deleted successfully");
       fetchProducts();
     } catch (error) {

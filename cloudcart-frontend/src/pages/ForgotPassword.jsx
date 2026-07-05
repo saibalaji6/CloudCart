@@ -16,17 +16,17 @@ function ForgotPassword() {
     setLoading(true);
 
     try {
-      await api.post("/auth/forgot-password", {
-        email: email,
-      });
+  await api.post("/api/auth/forgot-password", {
+    email: email,
+  });
 
-      toast.success("Password reset link sent to your email.");
-    } catch (error) {
-      console.error(error);
-      toast.error("Failed to send reset link.");
-    } finally {
-      setLoading(false);
-    }
+  toast.success("Password reset link sent to your email.");
+} catch (error) {
+  console.error(error);
+  toast.error("Failed to send reset link.");
+} finally {
+  setLoading(false);
+}
   };
 
   return (

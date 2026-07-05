@@ -7,17 +7,17 @@ function Orders() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    if (user?.email) {
-      api
-        .get(`/orders/user/${user.email}`)
-        .then((response) => {
-          setOrders(response.data);
-        })
-        .catch((error) => {
-          console.error("Error fetching orders:", error);
-        });
-    }
-  }, [user]);
+  if (user?.email) {
+    api
+      .get(`/api/orders/user/${user.email}`)
+      .then((response) => {
+        setOrders(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching orders:", error);
+      });
+  }
+}, [user]);
 
   return (
     <div className="orders-page">

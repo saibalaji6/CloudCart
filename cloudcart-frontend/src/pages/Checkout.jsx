@@ -78,7 +78,7 @@ function Checkout() {
 
 placeOrder(customer);
 
-const response = await api.post("/payments/create-checkout-session", {
+const response = await api.post("/api/payments/create-checkout-session", {
   totalPrice: totalPrice,
 });
 

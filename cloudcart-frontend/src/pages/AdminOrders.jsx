@@ -6,7 +6,7 @@ function AdminOrders() {
 
   const fetchOrders = () => {
     api
-      .get("/orders")
+      .get("/api/orders")
       .then((response) => setOrders(response.data))
       .catch((error) => console.error(error));
   };
@@ -17,7 +17,7 @@ function AdminOrders() {
 
   const handleStatusChange = async (id, status) => {
     try {
-      await api.put(`/orders/${id}/status?status=${status}`);
+      await api.put(`/api/orders/${id}/status?status=${status}`);
       alert("Order status updated");
       fetchOrders();
     } catch (error) {

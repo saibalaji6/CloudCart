@@ -35,7 +35,7 @@ function ResetPassword() {
     }
 
     try {
-      await api.post("/auth/reset-password", {
+      await api.post("/api/auth/reset-password", {
         token: token,
         newPassword: passwords.newPassword,
       });
