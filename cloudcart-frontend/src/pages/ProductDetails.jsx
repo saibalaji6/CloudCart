@@ -17,25 +17,26 @@ function ProductDetails() {
     comment: "",
   });
 
- useEffect(() => {
-  api
-    .get("/api/products")
-    .then((response) => {
-      const foundProduct = response.data.find(
-        (item) => Number(item.id) === Number(id)
-      );
+  useEffect(() => {
+    api
+      .get("/api/products")
+      .then((response) => {
+        const foundProduct = response.data.find(
+          (item) => Number(item.id) === Number(id)
+        );
 
-      setProduct(foundProduct);
-    })
-    .catch((error) => {
-      console.error("Error fetching product:", error);
-    });
+        setProduct(foundProduct);
+      })
+      .catch((error) => {
+        console.error("Error fetching product:", error);
+      });
 
-  fetchReviews();
-}, [id]);
+    fetchReviews();
+  }, [id]);
+
   const fetchReviews = () => {
     api
-      .get(`/reviews/product/${id}`)
+      .get(`/api/reviews/product/${id}`)
       .then((response) => setReviews(response.data))
       .catch((error) => console.error(error));
   };
@@ -59,7 +60,7 @@ function ProductDetails() {
     }
 
     try {
-      await api.post("/reviews", {
+      await api.post("/api/reviews", {
         productId: Number(id),
         userEmail: user.email,
         rating: Number(newReview.rating),
@@ -84,7 +85,7 @@ function ProductDetails() {
     return <h2>Product Not Found</h2>;
   }
 
-  const imagePath = `/src/assets/images/${product.imageUrl}`;
+  const imagePath = `/images/${product.imageUrl}`;
 
   return (
     <div className="product-details">
