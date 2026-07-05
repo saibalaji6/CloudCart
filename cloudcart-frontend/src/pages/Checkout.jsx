@@ -52,7 +52,7 @@ function Checkout() {
 
     try {
       if (customer.paymentMethod === "Cash On Delivery") {
-        await api.post("/orders", {
+        await api.post("/api/orders", {
           userEmail: user.email,
           fullName: customer.fullName,
           phoneNumber: customer.phoneNumber,
@@ -67,7 +67,7 @@ function Checkout() {
         return;
       }
 
-      await api.post("/orders", {
+      await api.post("/api/orders", {
   userEmail: user.email,
   fullName: customer.fullName,
   phoneNumber: customer.phoneNumber,
