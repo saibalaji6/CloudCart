@@ -43,19 +43,19 @@ function Cart() {
 
                   <div className="cart-actions">
   <div className="cart-qty-control">
-    <button onClick={() => decreaseQuantity(item.id)}>-</button>
+  <button onClick={() => decreaseQuantity(item.id)}>-</button>
 
-    <span>{item.quantity}</span>
+  <span>{item.quantity}</span>
 
-    <button onClick={() => increaseQuantity(item.id)}>+</button>
-  </div>
+  <button onClick={() => increaseQuantity(item.id)}>+</button>
+</div>
 
   <button
-    className="cart-remove-btn"
-    onClick={() => removeFromCart(index)}
-  >
-    Remove
-  </button>
+  className="cart-remove-link"
+  onClick={() => removeFromCart(index)}
+>
+  Remove
+</button>
 </div>
                 </div>
 
