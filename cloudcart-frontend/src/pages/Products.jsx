@@ -104,7 +104,9 @@ function Products() {
         <button onClick={clearFilters}>Clear Filters</button>
       </div>
 
-      <p>{filteredProducts.length} product(s) found</p>
+      <p className="products-count">
+  {filteredProducts.length} product(s) found
+</p>
 
       <div className="product-grid">
         {filteredProducts.map((product) => (
