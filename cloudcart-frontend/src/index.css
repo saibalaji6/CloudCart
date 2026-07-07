@@ -1381,3 +1381,24 @@ button:disabled {
   color: white;
   font-size: 18px;
 }
+.cart-remove-btn{
+    display:block;
+    margin:16px auto 0;
+
+    background:none;
+    border:none;
+
+    color:#6b7280;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:all .25s ease;
+}
+
+.cart-remove-btn:hover{
+    color:#ef4444;
+    text-decoration:underline;
+}

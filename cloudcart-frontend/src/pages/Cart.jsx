@@ -48,11 +48,11 @@ function Cart() {
                   </div>
 
                   <button
-                    className="remove-btn"
-                    onClick={() => removeFromCart(index)}
-                  >
-                    Remove
-                  </button>
+  className="cart-remove-btn"
+  onClick={() => removeFromCart(index)}
+>
+  Remove
+</button>
                 </div>
 
                 <div className="item-total">
