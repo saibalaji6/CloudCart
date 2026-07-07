@@ -23,7 +23,9 @@ function Wishlist() {
           <h2>Your wishlist is empty</h2>
           <p>Save products you like and come back later.</p>
           <Link to="/products">
-            <button className="wishlist-add-btn">Continue Shopping</button>
+            <button className="continue-shopping-btn">
+  Continue Shopping
+</button>
           </Link>
         </div>
       ) : (
