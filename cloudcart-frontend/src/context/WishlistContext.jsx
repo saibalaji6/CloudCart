@@ -5,30 +5,53 @@ export const WishlistContext = createContext();
 function WishlistProvider({ children }) {
   const savedWishlist = localStorage.getItem("wishlist");
 
-  const [wishlist, setWishlist] = useState(
+  const [wishlistItems, setWishlistItems] = useState(
     savedWishlist ? JSON.parse(savedWishlist) : []
   );
 
+  const saveWishlist = (items) => {
+    setWishlistItems(items);
+    localStorage.setItem("wishlist", JSON.stringify(items));
+  };
+
   const addToWishlist = (product) => {
-    const exists = wishlist.find(
+    const exists = wishlistItems.find(
       (item) => item.id === product.id
     );
 
     if (!exists) {
-      const updatedWishlist = [...wishlist, product];
+      saveWishlist([...wishlistItems, product]);
+    }
+  };
 
-      setWishlist(updatedWishlist);
+  const removeFromWishlist = (productId) => {
+    const updatedWishlist = wishlistItems.filter(
+      (item) => item.id !== productId
+    );
 
-      localStorage.setItem(
-        "wishlist",
-        JSON.stringify(updatedWishlist)
-      );
+    saveWishlist(updatedWishlist);
+  };
+
+  const toggleWishlist = (product) => {
+    const exists = wishlistItems.find(
+      (item) => item.id === product.id
+    );
+
+    if (exists) {
+      removeFromWishlist(product.id);
+    } else {
+      addToWishlist(product);
     }
   };
 
   return (
     <WishlistContext.Provider
-      value={{ wishlist, addToWishlist }}
+      value={{
+        wishlistItems,
+        addToWishlist,
+        removeFromWishlist,
+        toggleWishlist,
+      }}
     >
       {children}
     </WishlistContext.Provider>

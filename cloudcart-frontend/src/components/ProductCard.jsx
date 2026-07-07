@@ -2,16 +2,47 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { WishlistContext } from "../context/WishlistContext";
+import { toast } from "react-toastify";
 
 function ProductCard({ product }) {
-  const { addToCart } = useContext(CartContext);
-  const { addToWishlist } = useContext(WishlistContext);
+  const {
+    cartItems,
+    addToCart,
+    increaseQuantity,
+    decreaseQuantity,
+  } = useContext(CartContext);
 
-  const imagePath = `/images/${product.imageUrl}`;
+  const { wishlistItems, addToWishlist, removeFromWishlist } =
+    useContext(WishlistContext);
+
+  const cartItem = cartItems.find((item) => item.id === product.id);
+  const isWishlisted = wishlistItems.some((item) => item.id === product.id);
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    toast.success(`${product.name} added to cart`);
+  };
+
+  const handleWishlist = () => {
+    if (isWishlisted) {
+      removeFromWishlist(product.id);
+      toast.info(`${product.name} removed from wishlist`);
+    } else {
+      addToWishlist(product);
+      toast.success(`${product.name} added to wishlist`);
+    }
+  };
 
   return (
     <div className="product-card">
-      <img src={imagePath} alt={product.name} />
+      <button
+        className={`wishlist-heart ${isWishlisted ? "active" : ""}`}
+        onClick={handleWishlist}
+      >
+        {isWishlisted ? "❤️" : "♡"}
+      </button>
+
+      <img src={`/images/${product.imageUrl}`} alt={product.name} />
 
       <Link to={`/product/${product.id}`}>
         <h3>{product.name}</h3>
@@ -23,9 +54,17 @@ function ProductCard({ product }) {
 
       <h4>${product.price}</h4>
 
-      <button onClick={() => addToCart(product)}>Add to Cart</button>
-
-      <button onClick={() => addToWishlist(product)}>❤️ Wishlist</button>
+      {cartItem ? (
+        <div className="product-qty-control">
+          <button onClick={() => decreaseQuantity(product.id)}>-</button>
+          <span>{cartItem.quantity}</span>
+          <button onClick={() => increaseQuantity(product.id)}>+</button>
+        </div>
+      ) : (
+        <button className="add-cart-btn" onClick={handleAddToCart}>
+          Add to Cart
+        </button>
+      )}
     </div>
   );
 }
