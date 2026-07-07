@@ -22,10 +22,11 @@ function Wishlist() {
         <div className="empty-wishlist">
           <h2>Your wishlist is empty</h2>
           <p>Save products you like and come back later.</p>
+
           <Link to="/products">
             <button className="continue-shopping-btn">
-  Continue Shopping
-</button>
+              Continue Shopping
+            </button>
           </Link>
         </div>
       ) : (
@@ -61,23 +62,37 @@ function Wishlist() {
                 </Link>
 
                 <p className="wishlist-desc">{item.description}</p>
+
                 <p className="wishlist-rating">⭐ {item.rating}</p>
+
+                <p className="stock-badge">In Stock</p>
+
                 <h2 className="wishlist-price">${item.price}</h2>
 
-                {cartItem ? (
+                <button
+                  className="wishlist-add-btn"
+                  onClick={() => handleAddToCart(item)}
+                >
+                  🛒 Add to Cart
+                </button>
+
+                {cartItem && (
                   <div className="wishlist-qty-control">
                     <button onClick={() => decreaseQuantity(item.id)}>-</button>
                     <span>{cartItem.quantity}</span>
                     <button onClick={() => increaseQuantity(item.id)}>+</button>
                   </div>
-                ) : (
-                  <button
-                    className="wishlist-add-btn"
-                    onClick={() => handleAddToCart(item)}
-                  >
-                    🛒 Add to Cart
-                  </button>
                 )}
+
+                <button
+                  className="wishlist-remove-btn"
+                  onClick={() => {
+                    removeFromWishlist(item.id);
+                    toast.info(`${item.name} removed from wishlist`);
+                  }}
+                >
+                  Remove
+                </button>
               </div>
             );
           })}
