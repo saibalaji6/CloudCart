@@ -59,9 +59,7 @@ function Wishlist() {
                 </Link>
 
                 <p className="wishlist-desc">{item.description}</p>
-
                 <p className="wishlist-rating">⭐ {item.rating}</p>
-
                 <h2 className="wishlist-price">${item.price}</h2>
 
                 {cartItem ? (

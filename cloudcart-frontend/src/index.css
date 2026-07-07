@@ -872,20 +872,33 @@ button:disabled {
 }
 
 .wishlist-remove-heart {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 44px;
-  height: 44px;
-  border: 2px solid #e11d48;
-  border-radius: 50%;
-  background: #fff1f2;
-  color: #e11d48;
-  font-size: 23px;
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  left: auto !important;
+
+  width: 44px !important;
+  height: 44px !important;
+
+  border-radius: 50% !important;
+  border: 2px solid #e5e7eb !important;
+  background: white !important;
+  color: #ef4444 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  font-size: 22px !important;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: 20;
+  transform: none !important;
+}
+
+.wishlist-remove-heart:hover {
+  background: #ef4444 !important;
+  color: white !important;
+  border-color: #ef4444 !important;
 }
 
 .wishlist-remove-heart:hover {

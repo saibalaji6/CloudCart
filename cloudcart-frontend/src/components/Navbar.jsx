@@ -2,10 +2,15 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { AuthContext } from "../context/AuthContext";
+import { WishlistContext } from "../context/WishlistContext";
 
 function Navbar() {
   const { cartItems } = useContext(CartContext);
   const { user, logout } = useContext(AuthContext);
+  const { wishlistItems } = useContext(WishlistContext);
+  
+  
+
 
   return (
     <nav>
@@ -15,7 +20,7 @@ function Navbar() {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/products">Products</Link></li>
         <li><Link to="/cart">Cart ({cartItems.length})</Link></li>
-        <li><Link to="/wishlist">Wishlist</Link></li>
+        <Link to="/wishlist">Wishlist ({wishlistItems.length})</Link>
         <li><Link to="/orders">Orders</Link></li>
 
         {user?.role === "ADMIN" && (
