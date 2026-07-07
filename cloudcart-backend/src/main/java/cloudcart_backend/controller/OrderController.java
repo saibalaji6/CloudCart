@@ -2,7 +2,6 @@ package cloudcart_backend.controller;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +16,7 @@ import cloudcart_backend.service.OrderService;
 
 @RestController
 @RequestMapping("/api/orders")
-@CrossOrigin(origins = "http://localhost:5173")
+
 public class OrderController {
 
     private final OrderService orderService;

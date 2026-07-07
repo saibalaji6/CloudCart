@@ -32,17 +32,25 @@ public class OrderService {
 
         Order savedOrder = orderRepository.save(order);
 
-        emailService.sendOrderConfirmation(
-                order.getUserEmail(),
-                order.getFullName(),
-                order.getTotalPrice()
-        );
+        try {
+            emailService.sendOrderConfirmation(
+                    savedOrder.getUserEmail(),
+                    savedOrder.getFullName(),
+                    savedOrder.getTotalPrice()
+            );
+        } catch (Exception e) {
+            System.out.println("Email failed: " + e.getMessage());
+        }
 
-        smsService.sendOrderConfirmation(
-                order.getPhoneNumber(),
-                order.getFullName(),
-                order.getTotalPrice()
-        );
+        try {
+            smsService.sendOrderConfirmation(
+                    savedOrder.getPhoneNumber(),
+                    savedOrder.getFullName(),
+                    savedOrder.getTotalPrice()
+            );
+        } catch (Exception e) {
+            System.out.println("SMS failed: " + e.getMessage());
+        }
 
         return savedOrder;
     }
