@@ -16,7 +16,7 @@ function AdminDashboard() {
 
   const fetchProducts = () => {
     api
-      .get("/products")
+      .get("/api/products")
       .then((response) => setProducts(response.data))
       .catch((error) => console.error("Error fetching products:", error));
   };
