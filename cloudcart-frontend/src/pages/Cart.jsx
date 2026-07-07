@@ -41,18 +41,22 @@ function Cart() {
                   <h3>{item.name}</h3>
                   <p className="cart-price">${item.price}</p>
 
-                  <div className="quantity-control">
-                    <button onClick={() => decreaseQuantity(item.id)}>-</button>
-                    <span>{item.quantity}</span>
-                    <button onClick={() => increaseQuantity(item.id)}>+</button>
-                  </div>
+                  <div className="cart-actions">
+  <div className="cart-qty-control">
+    <button onClick={() => decreaseQuantity(item.id)}>-</button>
 
-                  <button
-  className="cart-remove-btn"
-  onClick={() => removeFromCart(index)}
->
-  Remove
-</button>
+    <span>{item.quantity}</span>
+
+    <button onClick={() => increaseQuantity(item.id)}>+</button>
+  </div>
+
+  <button
+    className="cart-remove-btn"
+    onClick={() => removeFromCart(index)}
+  >
+    Remove
+  </button>
+</div>
                 </div>
 
                 <div className="item-total">

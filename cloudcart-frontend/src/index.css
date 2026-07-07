@@ -1402,3 +1402,30 @@ button:disabled {
     color:#ef4444;
     text-decoration:underline;
 }
+.cart-actions{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top:20px;
+}
+
+.cart-remove-btn{
+    margin-top:14px;
+
+    background:none;
+    border:none;
+
+    color:#666;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.cart-remove-btn:hover{
+    color:#ef4444;
+    text-decoration:underline;
+}
