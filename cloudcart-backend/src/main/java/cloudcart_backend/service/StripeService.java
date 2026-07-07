@@ -21,8 +21,8 @@ public class StripeService {
         SessionCreateParams params =
                 SessionCreateParams.builder()
                         .setMode(SessionCreateParams.Mode.PAYMENT)
-                        .setSuccessUrl("https://cloud-cart-olive.vercel.app/payment-success")
-                        .setCancelUrl("https://cloud-cart-olive.vercel.app/payment-cancel")
+                        .setSuccessUrl("https://cloud-cart-olive.vercel.app/checkout-success")
+                        .setCancelUrl("https://cloud-cart-olive.vercel.app/cart")
                         .addLineItem(
                                 SessionCreateParams.LineItem.builder()
                                         .setQuantity(1L)

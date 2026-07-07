@@ -18,6 +18,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentCancel from "./pages/PaymentCancel";
+import CheckoutSuccess from "./pages/CheckoutSuccess";
 
 function App() {
   return (
@@ -72,6 +73,7 @@ function App() {
           }
         />
         <Route path="/admin/orders" element={<AdminOrders />} />
+        <Route path="/checkout-success" element={<CheckoutSuccess />} />
 
         <Route path="/login" element={<Login />} />
 

@@ -52,20 +52,21 @@ function Checkout() {
 
     try {
       if (customer.paymentMethod === "Cash On Delivery") {
-        await api.post("/api/orders", {
-          userEmail: user.email,
-          fullName: customer.fullName,
-          phoneNumber: customer.phoneNumber,
-          address: customer.address,
-          paymentMethod: customer.paymentMethod,
-          totalPrice: totalPrice,
-        });
+  await api.post("/api/orders", {
+    userEmail: user.email,
+    fullName: customer.fullName,
+    phoneNumber: customer.phoneNumber,
+    address: customer.address,
+    paymentMethod: customer.paymentMethod,
+    totalPrice: totalPrice,
+  });
 
-        placeOrder(customer);
-        toast.success("Order placed successfully!");
-        navigate("/orders");
-        return;
-      }
+  placeOrder(customer);
+  toast.success("Order placed successfully!");
+  setLoading(false);
+  navigate("/orders");
+  return;
+}
 
       
 

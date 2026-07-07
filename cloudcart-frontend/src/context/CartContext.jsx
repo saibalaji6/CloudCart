@@ -107,6 +107,7 @@ function CartProvider({ children }) {
         decreaseQuantity,
         clearCart,
         placeOrder,
+        
       }}
     >
       {children}
