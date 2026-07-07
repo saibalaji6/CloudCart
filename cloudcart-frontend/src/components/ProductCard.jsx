@@ -36,11 +36,12 @@ function ProductCard({ product }) {
   return (
     <div className="product-card">
       <button
-        className={`wishlist-heart ${isWishlisted ? "active" : ""}`}
-        onClick={handleWishlist}
-      >
-        {isWishlisted ? "❤️" : "♡"}
-      </button>
+  type="button"
+  className={`wishlist-heart ${isWishlisted ? "active" : ""}`}
+  onClick={handleWishlist}
+>
+  {isWishlisted ? "♥" : "♡"}
+</button>
 
       <img src={`/images/${product.imageUrl}`} alt={product.name} />
 
