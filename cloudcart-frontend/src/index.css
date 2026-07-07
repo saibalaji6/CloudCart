@@ -557,16 +557,7 @@ button:disabled {
   font-size: 18px;
 }
 
-.wishlist-heart {
-  position: absolute;
-  top: 14px;
-  right: 16px;
-  background: white;
-  border: none;
-  font-size: 30px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
+
 
 .wishlist-heart:hover {
   transform: scale(1.2);
@@ -693,10 +684,11 @@ button:disabled {
   margin-bottom: 30px;
 }
 
-.wishlist-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 26px;
+.wishlist-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
 }
 
 .wishlist-card {
@@ -998,29 +990,37 @@ button:disabled {
     justify-content:center;
     gap:30px;
 }
-.wishlist-remove-heart{
-    position:absolute;
-    top:15px;
-    right:15px;
+.wishlist-remove-heart {
+    position: absolute;
 
-    width:42px;
-    height:42px;
+    top: 15px;
+    right: 15px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    width: 42px;
+    height: 42px;
 
-    border-radius:50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    border:2px solid #ef4444;
+    background: white;
+    border: 2px solid #d1d5db;
+    border-radius: 50%;
 
-    background:white;
+    color: #ef4444;
+    font-size: 22px;
+    font-weight: bold;
 
-    color:#ef4444;
+    cursor: pointer;
 
-    font-size:22px;
+    transition: all .25s ease;
 
-    cursor:pointer;
+    z-index: 100;
+}
 
-    z-index:100;
+.wishlist-remove-heart:hover{
+    background:#ef4444;
+    color:white;
+    border-color:#ef4444;
+    transform:scale(1.12);
 }
