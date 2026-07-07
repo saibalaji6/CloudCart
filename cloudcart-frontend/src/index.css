@@ -1242,3 +1242,142 @@ button:disabled {
 .continue-shopping-btn:hover {
   background: #1d4ed8;
 }
+.wishlist-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 20px;
+}
+
+.wishlist-page h1 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 28px;
+}
+
+.wishlist-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.wishlist-card {
+  width: 280px;
+  min-height: 520px;
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+.wishlist-image {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin: 18px auto 12px;
+  display: block;
+}
+
+.wishlist-name {
+  display: block;
+  font-size: 18px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.wishlist-desc {
+  font-size: 15px;
+  color: #4b5563;
+  min-height: 42px;
+  line-height: 1.35;
+}
+
+.wishlist-rating {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.stock-badge {
+  display: inline-block;
+  color: #15803d;
+  background: #dcfce7;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.wishlist-price {
+  color: #2563eb;
+  font-size: 24px;
+  font-weight: 900;
+  margin: 12px 0;
+}
+
+.wishlist-add-btn {
+  width: 100%;
+  padding: 11px 14px;
+  border: none;
+  border-radius: 999px;
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.wishlist-remove-btn {
+  margin-top: 10px;
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.wishlist-remove-btn:hover {
+  color: #ef4444;
+  text-decoration: underline;
+}
+
+.wishlist-remove-heart {
+  position: absolute !important;
+  top: 14px !important;
+  right: 14px !important;
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 50% !important;
+  border: 2px solid #e5e7eb !important;
+  background: white !important;
+  color: #ef4444 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 19px !important;
+  cursor: pointer;
+}
+
+.wishlist-qty-control {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: 8px;
+}
+
+.wishlist-qty-control button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background: #2563eb;
+  color: white;
+  font-size: 18px;
+}
